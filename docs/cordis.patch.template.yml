@@ -1,0 +1,86 @@
+# dsh-remote — 手动安装模板（历史形态，保留备查）
+#
+# 本仓库现在是一个 DSH bundle：`package.json` 声明了
+# `dsh.bundle.patch`，`cordis.patch.yml` 是真正的 bundle patch，
+# 装完后由插件管理器启用/停用即可（不必再手改 profile）。
+#
+# 下面这份是**旧的手动模板**：当你想把某一端挂进别人的 profile、
+# 或想在一个 profile 里同时挂两端做回环自测时，按需把对应那段追加到
+# 目标 profile 的 cordis.patch.yml 末尾。路径按实际目录改
+# （注意 file:/// 三条斜杠 + 正斜杠）。行名请指向**构建产物**，
+# 不要指向 src/*.ts —— 运行时不保证有 TS loader。
+#
+# 两端各只装自己那一行，不要两行都装在同一台机器上
+# （除非你就是想做单机回环自测，那用不同端口避开即可）。
+
+# ─────────────────────────────────────────────────────────────
+# 【被控机】装这一段
+# ─────────────────────────────────────────────────────────────
+# - insert:
+#     - id: dsh-remote-server
+#       name: 'file:///C:/path/to/dsh-remote/lib/server.js'
+#       config:
+#         host: '127.0.0.1'
+#         # 必须等于 frp 隧道里填的“本地端口”，且由本插件独占
+#         port: 11325
+#         # 密钥默认落在 ${DSH_HOME}/dsh-remote/{server.key, client.pub}
+#         # 也可以在这里内联指定（privateKey 是 secret 字段，不会回显到 GUI 传输里）：
+#         #   privateKey: '<PEM / 64位hex / base64>'
+#         #   peerPublicKey: '<对端公钥 PEM>'
+#         # 远端被创建会话的工作目录与默认 preset：
+#         #   workspace: 'E:\path\app'
+#         #   defaultPreset: 'cordis'
+
+# ─────────────────────────────────────────────────────────────
+# 【主控机】装这一段
+# ─────────────────────────────────────────────────────────────
+# - insert:
+#     - id: dsh-remote-client
+#       name: 'file:///C:/path/to/dsh-remote/lib/client.js'
+#       config:
+#         host: 'tunnel.example.com'
+#         port: 10000
+#         # 密钥默认落在 ${DSH_HOME}/dsh-remote/{client.key, server.pub}
+#         #   privateKey: '<PEM / 64位hex / base64>'
+#         #   peerPublicKey: '<对端公钥 PEM>'
+#         # 不指定 session_id 时自动生成的会话前缀：
+#         #   sessionPrefix: 'remote'
+
+# ─────────────────────────────────────────────────────────────
+# 单机回环自测（两端在同一台机器上，纯为验证链路）
+# 选一个空闲端口；默认的 11325 留给正式部署。
+# ─────────────────────────────────────────────────────────────
+# - insert:
+#     - id: dsh-remote-server
+#       name: 'file:///C:/path/to/dsh-remote/lib/server.js'
+#       config: { host: '127.0.0.1', port: 11326 }
+#     - id: dsh-remote-client
+#       name: 'file:///C:/path/to/dsh-remote/lib/client.js'
+#       config: { host: '127.0.0.1', port: 11326 }
+
+# ─────────────────────────────────────────────────────────────
+# 【可选】把远端对话当 subagent / task 用（主控机）
+#
+# 还需要两件事：client 侧打开 `subagentProvider: true`，并把
+# `@deepseek-ai/dsh-subagent` junction 到插件目录的 node_modules 下
+# （profile-linked 插件不解析 harness peer）。详见 docs/GUIDE.md §4.5。
+#
+# `maxDepth: provider-managed` 不能改成数字：这个 provider 没有 depthLimit 能力，
+# 写数字会让这一行直接拒绝挂载。
+# ─────────────────────────────────────────────────────────────
+# - insert:
+#     - id: tool-subagent-remote
+#       name: '@deepseek-ai/dsh-tool-subagent'
+#       config:
+#         provider: remote
+#         toolName: subagent_remote
+#         backgroundMode: one-shot
+#         maxDepth: provider-managed
+
+# ─────────────────────────────────────────────────────────────
+# 【注意】被控机想要设置面板，就别按上面那种 file:// 行装 server：
+#   * `name: 'dsh-remote/server'`（子路径行）不加载浏览器半，没有配置页；
+#   * profile 里手加的 row 没有 row 卡片，注册了也没人派发；
+#   * "精确包名行 + file:// 行"同时活跃 = 两个来源解析到同一个包名 = 启动期硬错误。
+# 正确做法：装 bundle，保留 client 行（`toolEnabled: false`，只为承载面板），
+# 启用 cordis.patch.yml 里已声明、默认 disabled 的 server 行。见 GUIDE §2.6。

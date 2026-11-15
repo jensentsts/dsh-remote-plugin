@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Mesh connection",
+    "description": "Connect outward to a pinned hub and carry end-to-end authenticated device links over one existing network entry."
+  }
+}

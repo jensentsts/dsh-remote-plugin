@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Multi-host links",
+    "description": "Connect DSH hosts and discover plugins, named workspaces and files with host-qualified @ references, pinned keys and per-host permissions."
+  }
+}

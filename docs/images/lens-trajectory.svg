@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960" font-family="'Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif">
+  <defs>
+    <radialGradient id="gY4" cx="12%" cy="8%" r="55%">
+      <stop offset="0" stop-color="#f3d64e" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#f3d64e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gT4" cx="90%" cy="92%" r="55%">
+      <stop offset="0" stop-color="#63d3c0" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#63d3c0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots4" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.6" fill="#ffffff" opacity="0.04"/>
+    </pattern>
+    <filter id="sh4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="sh4b" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <linearGradient id="paper4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbf7ef"/>
+      <stop offset="1" stop-color="#efe7da"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f8fbf"/>
+      <stop offset="0.55" stop-color="#d9a06b"/>
+      <stop offset="1" stop-color="#704b3f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="960" rx="26" fill="#121317"/>
+  <rect width="1440" height="960" rx="26" fill="url(#dots4)"/>
+  <rect width="1440" height="960" rx="26" fill="url(#gY4)"/>
+  <rect width="1440" height="960" rx="26" fill="url(#gT4)"/>
+  <rect x="0.5" y="0.5" width="1439" height="959" rx="25.5" fill="none" stroke="#2c2e37"/>
+
+  <g transform="translate(64,46)">
+    <rect x="0" y="0" width="128" height="30" rx="15" fill="#1d1e24" stroke="#34363f"/>
+    <text x="16" y="20" fill="#f3d64e" font-size="14" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">镜头 ③ · 轨迹</text>
+  </g>
+  <text x="64" y="120" fill="#f7f7fa" font-size="34" font-weight="700">上下文里没有「远程」二字</text>
+  <text x="64" y="152" fill="#9aa0aa" font-size="18">下面是同一 Turn 里真实发生过的调用序列：远端字节和本机命令并排出现，模型只管把事做完。</text>
+
+  <!-- timeline card -->
+  <g filter="url(#sh4)">
+    <rect x="64" y="196" width="880" height="628" rx="20" fill="#181a20" stroke="#2c2e37"/>
+  </g>
+
+  <!-- user bubble -->
+  <g>
+    <rect x="92" y="228" width="600" height="54" rx="14" fill="#22252d" stroke="#34363f"/>
+    <rect x="92" y="228" width="6" height="54" rx="3" fill="#f3d64e"/>
+    <text x="116" y="262" fill="#f3d64e" font-size="14" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">你</text>
+    <text x="146" y="262" fill="#e6e8ec" font-size="16">把远端那张示例图找出来，再在本机随便挑一张图，各贴一张到聊天里做对比。</text>
+  </g>
+
+  <!-- timeline spine -->
+  <line x1="110" y1="306" x2="110" y2="760" stroke="#2c2e37" stroke-width="2"/>
+  <g>
+    <circle cx="110" cy="330" r="7" fill="#181a20" stroke="#f3d64e" stroke-width="2.4"/>
+    <text x="132" y="336" fill="#8b929c" font-size="13" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">Turn 1 · Step 1</text>
+  </g>
+
+  <!-- tool chip: remote read_image -->
+  <g filter="url(#sh4b)">
+    <rect x="132" y="352" width="784" height="62" rx="12" fill="#172b2a" stroke="#2f6f67"/>
+  </g>
+  <g>
+    <rect x="150" y="368" width="30" height="30" rx="8" fill="#123c37" stroke="#2f6f67"/>
+    <path d="M158 386 l4 -6 l4 4 l3 -3 l4 5" stroke="#7fe0d1" fill="none" stroke-width="1.8"/>
+    <circle cx="172" cy="374" r="2.4" fill="#7fe0d1"/>
+    <text x="192" y="380" fill="#d9fff8" font-size="15" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">read_image("/rmt/E:/data/samples/…remote-sample.jpg")</text>
+    <text x="192" y="400" fill="#6fc9bc" font-size="13">字节经加密链路从对端取回 · 本机 fs 原样返回</text>
+    <rect x="790" y="366" width="108" height="26" rx="13" fill="#123c37" stroke="#2f6f67"/>
+    <text x="844" y="383" fill="#7fe0d1" font-size="12" text-anchor="middle">远端资源</text>
+  </g>
+
+  <!-- tool chip: local pwsh -->
+  <g filter="url(#sh4b)">
+    <rect x="132" y="428" width="784" height="62" rx="12" fill="#22252d" stroke="#34363f"/>
+  </g>
+  <g>
+    <rect x="150" y="444" width="30" height="30" rx="8" fill="#2b2f38" stroke="#3b3f4a"/>
+    <path d="M158 456 l6 6 l-6 6" stroke="#f3d64e" fill="none" stroke-width="2" stroke-linecap="round"/>
+    <text x="192" y="456" fill="#e7e9ee" font-size="15" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">pwsh("Get-ChildItem E:\data -Recurse -Include *.jpg | Get-Random")</text>
+    <text x="192" y="476" fill="#8b929c" font-size="13">本机进程 · 完全走本地工具链</text>
+    <rect x="790" y="442" width="108" height="26" rx="13" fill="#2a2d36" stroke="#3b3f4a"/>
+    <text x="844" y="459" fill="#e9d98a" font-size="12" text-anchor="middle">本机资源</text>
+  </g>
+
+  <g>
+    <circle cx="110" cy="514" r="7" fill="#181a20" stroke="#f3d64e" stroke-width="2.4"/>
+    <text x="132" y="520" fill="#8b929c" font-size="13" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">Turn 1 · Step 2</text>
+  </g>
+  <g filter="url(#sh4b)">
+    <rect x="132" y="534" width="784" height="56" rx="12" fill="#22252d" stroke="#34363f"/>
+  </g>
+  <g>
+    <rect x="150" y="546" width="30" height="30" rx="8" fill="#2b2f38" stroke="#3b3f4a"/>
+    <path d="M158 564 l4 -6 l4 4 l3 -3 l4 5" stroke="#e9d98a" fill="none" stroke-width="1.8"/>
+    <circle cx="172" cy="552" r="2.4" fill="#e9d98a"/>
+    <text x="192" y="558" fill="#e7e9ee" font-size="15" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">read_image("E:/data/Archives/Pictures/local-sample.jpg")</text>
+    <text x="192" y="578" fill="#8b929c" font-size="13">本机磁盘 · 不需要任何桥接</text>
+    <rect x="800" y="550" width="98" height="26" rx="13" fill="#2a2d36" stroke="#3b3f4a"/>
+    <text x="849" y="567" fill="#e9d98a" font-size="12" text-anchor="middle">本机资源</text>
+  </g>
+
+  <g>
+    <circle cx="110" cy="616" r="7" fill="#181a20" stroke="#63d3c0" stroke-width="2.4"/>
+    <text x="132" y="622" fill="#8b929c" font-size="13" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">Turn 1 · Step 3</text>
+  </g>
+  <!-- assistant bubble -->
+  <g>
+    <rect x="132" y="636" width="560" height="160" rx="14" fill="#1e2028" stroke="#343741"/>
+    <circle cx="158" cy="664" r="9" fill="#2a2d36" stroke="#3b3f4a"/>
+    <text x="158" y="669" fill="#63d3c0" font-size="10" text-anchor="middle" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">AI</text>
+    <text x="178" y="669" fill="#9aa0aa" font-size="14">助手</text>
+    <text x="152" y="694" fill="#e6e8ec" font-size="15">左边是远端那张示例图，右边是本机随机挑的一张：</text>
+    <!-- remote thumbnail -->
+    <rect x="152" y="708" width="118" height="74" rx="8" fill="url(#paper4)" stroke="#d9cfbd"/>
+    <line x1="152" y1="735" x2="270" y2="735" stroke="#ecc9c9" stroke-dasharray="3 3"/>
+    <line x1="196" y1="708" x2="196" y2="782" stroke="#ecc9c9" stroke-dasharray="3 3"/>
+    <line x1="231" y1="708" x2="231" y2="782" stroke="#ecc9c9" stroke-dasharray="3 3"/>
+    <text x="211" y="757" fill="#b3323e" font-size="26" text-anchor="middle">永</text>
+    <!-- local thumbnail -->
+    <rect x="282" y="708" width="118" height="74" rx="8" fill="url(#sky)" stroke="#8a6a52"/>
+    <circle cx="330" cy="736" r="10" fill="#f3d64e" opacity="0.85"/>
+    <path d="M282 770 l26 -22 l22 16 l18 -12 l28 18 v8 h-94 z" fill="#4d3a33" opacity="0.9"/>
+    <text x="400" y="726" fill="#8b929c" font-size="12">![](/rmt/…)  远端</text>
+    <text x="400" y="746" fill="#8b929c" font-size="12">![](E:/…)  本机</text>
+    <text x="400" y="770" fill="#6b727d" font-size="12">同一段回复里并排</text>
+  </g>
+
+  <!-- right callout -->
+  <g filter="url(#sh4)">
+    <rect x="984" y="196" width="392" height="300" rx="20" fill="#181a20" stroke="#2c2e37"/>
+  </g>
+  <text x="1008" y="236" fill="#f7f7fa" font-size="19" font-weight="700">模型不需要知道的事</text>
+  <line x1="1008" y1="252" x2="1352" y2="252" stroke="#2c2e37"/>
+  <g fill="#b9bec7" font-size="15">
+    <text x="1008" y="286">□ 工具绑定在哪个插件 / MCP</text>
+    <text x="1008" y="316">□ 资源躺在哪台机器、哪个盘</text>
+    <text x="1008" y="346">□ 要不要先「激活远端」</text>
+    <text x="1008" y="376">□ 会不会多开一个远端会话</text>
+    <text x="1008" y="406">□ 这次调用飞过了多少跳网络</text>
+  </g>
+  <line x1="1008" y1="430" x2="1352" y2="430" stroke="#2c2e37"/>
+  <text x="1008" y="460" fill="#f3d64e" font-size="17">它只需要知道：任务是什么。</text>
+
+  <!-- second callout -->
+  <g filter="url(#sh4)">
+    <rect x="984" y="516" width="392" height="308" rx="20" fill="#181a20" stroke="#2c2e37"/>
+  </g>
+  <text x="1008" y="556" fill="#f7f7fa" font-size="19" font-weight="700">对新 chat / 新 subagent 同样成立</text>
+  <line x1="1008" y1="572" x2="1352" y2="572" stroke="#2c2e37"/>
+  <text x="1008" y="604" fill="#b9bec7" font-size="15">它们创建出来时继承的是一套</text>
+  <text x="1008" y="628" fill="#b9bec7" font-size="15">看起来完整、用起来一致的工具面：</text>
+  <g>
+    <rect x="1008" y="648" width="150" height="34" rx="9" fill="#21232b" stroke="#34363f"/>
+    <text x="1022" y="670" fill="#cfd3da" font-size="14" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">read</text>
+    <rect x="1170" y="648" width="174" height="34" rx="9" fill="#172b2a" stroke="#2f6f67"/>
+    <text x="1184" y="670" fill="#7fe0d1" font-size="14" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">ieee_search</text>
+    <rect x="1008" y="692" width="150" height="34" rx="9" fill="#21232b" stroke="#34363f"/>
+    <text x="1022" y="714" fill="#cfd3da" font-size="14" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">pwsh</text>
+    <rect x="1170" y="692" width="174" height="34" rx="9" fill="#172b2a" stroke="#2f6f67"/>
+    <text x="1184" y="714" fill="#7fe0d1" font-size="14" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">remote_exec</text>
+  </g>
+  <text x="1008" y="768" fill="#8b929c" font-size="14">不需要额外 prompt，不需要培训它们认识桥。</text>
+  <text x="1008" y="796" fill="#6b727d" font-size="13">桥越隐形，注意力越能花在任务本身。</text>
+
+  <!-- bottom note -->
+  <text x="64" y="880" fill="#9aa0aa" font-size="17">把这条轨迹里的颜色抹掉：剩下的就是模型眼中的世界——一张完整的工具表，和一个待办的任务。</text>
+  <text x="64" y="912" fill="#6b727d" font-size="14">颜色仅用于讲解「字节来自哪边」；在 agent 的上下文里，两种工具没有任何调用方式上的差别。</text>
+</svg>

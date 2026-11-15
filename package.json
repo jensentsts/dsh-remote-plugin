@@ -1,0 +1,122 @@
+{
+  "name": "dsh-remote",
+  "version": "0.5.2",
+  "description": "Authenticated multi-host DSH links, host-qualified plugin and workspace references, and remote filesystem access.",
+  "engines": {
+    "dsh": ">=0.2.2-rc.1 <0.3.0"
+  },
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node tools/test.mjs"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "remote",
+    "x25519",
+    "aes-256-gcm",
+    "frp",
+    "ai-agent"
+  ],
+  "homepage": "https://github.com/jensentsts/dsh-remote-plugin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensentsts/dsh-remote-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jensentsts/dsh-remote-plugin/issues"
+  },
+  "type": "module",
+  "main": "lib/client.js",
+  "exports": {
+    ".": "./lib/client.js",
+    "./remote-client": "./lib/client.js",
+    "./server": "./lib/server.js",
+    "./mesh": "./lib/mesh.js",
+    "./peer-fs": "./lib/peer-fs.js",
+    "./peer-fs-0.5.2": "./lib/peer-fs.js",
+    "./file-reference": "./lib/file-reference.js",
+    "./client": "./client.js",
+    "./icon": "./icon.svg",
+    "./server/icon": "./icon.svg",
+    "./server/locale/*.json": "./locale/server/*.json",
+    "./mesh/icon": "./icon.svg",
+    "./mesh/locale/*.json": "./locale/mesh/*.json",
+    "./locale/*.json": "./locale/*.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/**/*.json",
+    "icon.svg",
+    "tools/build.mjs",
+    "tools/test.mjs",
+    "tools/check-exact.mjs",
+    "tools/artifact-metadata.mjs",
+    "tools/package-release.mjs",
+    "tools/release-validation.mjs",
+    "README.md",
+    "docs/MULTI-HOST.md",
+    "docs/MESSAGES-0.5.2.md",
+    "docs/ARTIFACTS-0.5.2.json",
+    "docs/SECURITY.md",
+    "docs/MESH.md",
+    "LICENSE",
+    "docs/GUIDE.md",
+    "docs/DEPLOY-PEER.md",
+    "docs/images",
+    "tools/gen-keys.py",
+    "tsconfig.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/cosmokit": "^1.8.5",
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "@deepseek-ai/dsh-agent": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-agent-preset-registry": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-fs": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-fs-local": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-fs-sandbox": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-fs-patch": "^0.2.2-rc.1",
+    "chokidar": "5.0.0",
+    "koffi": "3.1.1",
+    "@deepseek-ai/dsh-file-reference": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-file-reference-local": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-sandbox": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-session": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-storage-domain": "^0.2.2-rc.1",
+    "zod": "^4.4.3",
+    "@deepseek-ai/dsh-settings": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-subagent": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-tools": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-user-questions": "^0.2.2-rc.1",
+    "@deepseek-ai/dsh-util-values": "^0.2.2-rc.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-subagent": {
+      "optional": true
+    }
+  },
+  "license": "MIT"
+}

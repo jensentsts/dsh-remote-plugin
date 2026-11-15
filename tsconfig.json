@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "typeRoots": ["../../dsh/node_modules/@types"],
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedIndexedAccess": true,
+    /**
+     * The controlled machine loads this plugin's TS directly as a `file://` row,
+     * and its DSH strips types with Node's **strip-only** mode (no
+     * `--experimental-transform-types`). Syntax that cannot be erased — parameter
+     * properties, enums, namespaces — therefore fails to LOAD there while working
+     * fine here (esbuild transforms it). That asymmetry cost a deploy attempt: the
+     * peer rejected `reuse.ts` with ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX. This flag
+     * makes the compiler refuse that syntax, so the two runtimes can never
+     * disagree again.
+     */
+    "erasableSyntaxOnly": true,
+    "paths": {
+      "@deepseek-ai/cordis": ["../../dsh/vendor/cordis"],
+      "@deepseek-ai/cordis-plugin-loader": ["../../dsh/vendor/loader"],
+      "@deepseek-ai/schemastery": ["../../dsh/vendor/schemastery"],
+      "@deepseek-ai/cosmokit": ["../../dsh/vendor/cosmokit"],
+      "@deepseek-ai/dsh-settings": ["../../dsh/packages/settings/settings"],
+      "@deepseek-ai/dsh-tools": ["../../dsh/packages/core/tools"],
+      "@deepseek-ai/dsh-util-values": ["../../dsh/packages/util/values"],
+      "@deepseek-ai/dsh-agent": ["../../dsh/packages/core/agent"],
+      "@deepseek-ai/dsh-agent-preset-registry": ["../../dsh/packages/preset/agent-preset-registry"],
+      "@deepseek-ai/dsh-llm": ["../../dsh/packages/llm/llm"],
+      "@deepseek-ai/dsh-session": ["../../dsh/packages/core/session"],
+      "@deepseek-ai/dsh-system-prompt": ["../../dsh/packages/core/system-prompt"],
+      "@deepseek-ai/dsh-subagent": ["../../dsh/packages/subagent/subagent"],
+      "@deepseek-ai/dsh-fs": ["../../dsh/packages/fs/fs"],
+      "@deepseek-ai/dsh-fs-local": ["../../dsh/packages/fs/fs-local"],
+      "@deepseek-ai/dsh-fs-sandbox": ["../../dsh/packages/fs/fs-sandbox"],
+      "@deepseek-ai/dsh-file-reference": ["../../dsh/packages/context/file-reference"],
+      "@deepseek-ai/dsh-file-reference-local": ["../../dsh/packages/context/file-reference-local"],
+      "@deepseek-ai/dsh-sandbox": ["../../dsh/packages/sandbox/sandbox"],
+      "@deepseek-ai/dsh-sandbox-policy": ["../../dsh/packages/sandbox/sandbox-policy"],
+      "@deepseek-ai/dsh-user-questions": ["../../dsh/packages/interaction/user-questions"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}

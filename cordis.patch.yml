@@ -1,0 +1,71 @@
+# dsh-remote bundle patch.
+#
+# Client and server are independent roles and may run together on EVERY host.
+# For bidirectional links, enable both roles on each host, declare outbound
+# `peers` on the client and pin inbound `authorizedPeers` on the server.
+# Only the client starts by default: installing a bundle must not silently open
+# a listener. Enable/configure the server deliberately in the Plugins page.
+#
+# Rows name built JavaScript, not `src/*.ts`: a packaged runtime is not
+# guaranteed to carry a TypeScript loader, so the bundle ships `lib/` built by
+# esbuild (see README → 构建).
+#
+# The client row names the BARE package name on purpose. Two reasons:
+#   * `exports["."]` is the remote-client host half, and DSH discovers a
+#     package's `dsh.client` (browser half) only on an entry whose specifier is
+#     an EXACT package name — `exactPackageSpecifier` rejects subpaths, so a
+#     row named `dsh-remote/client` would load the host half but expose no
+#     settings page;
+#   * `exports["./client"]` therefore had to become the BROWSER bundle, which is
+#     the convention the scanner reads, and the host half moved to `.` /
+#     `./remote-client`.
+#
+# `host` / `port` are intentionally left unset: the plugin's schema defaults
+# them to '' and 0, and its `apply` logs
+#
+#   dsh-remote-client: no peer endpoint configured yet — set `host` and `port`
+#   in this plugin's settings (dsh-remote-client) before calling remote_* tools.
+#
+# instead of dialling. Set them in the plugin's own settings page (Plugins →
+# dsh-remote → row `dsh-remote-client` → 配置), or as an id-targeted override in
+# the profile's patch layer:
+#
+#   - id: dsh-remote-client
+#     config:
+#       host: 'tunnel.example.com'
+#       port: 10000
+#
+# Key material defaults to ${DSH_HOME}/dsh-remote/{client.key, server.pub}.
+
+- insert:
+    - id: dsh-remote-client
+      name: 'dsh-remote'
+
+# ── the other half, for a machine that is DRIVEN ──────────────────────────
+#
+# DECLARED but disabled — deliberately, and it has to be declared HERE.
+# The Plugins page only offers a Configure control for a row the **bundle
+# patch** declares: a row added by hand in a profile's own patch produces no
+# row card, so the browser half's registration is orphaned and the controlled
+# machine never gets a settings page. Enabling this row on the driven machine
+# (keeping the bare-name client row above so the browser half stays loaded;
+# `toolEnabled: false` is optional for a receive-only host) gives it a panel.
+#
+# Do NOT instead mount `file:///…/lib/server.js` alongside the bare-name row:
+# two active rows resolving to the same package is a boot-fatal client-graph
+# error.
+- insert:
+    - id: dsh-remote-server
+      name: 'dsh-remote/server'
+      disabled: true
+      config:
+        host: '127.0.0.1'
+        port: 11325
+        # 必须等于 frp 隧道里填的"本地端口"，且由本插件独占
+
+# Optional outbound mesh connection. It never starts a public listener.
+# Configure the hub pin and explicit pair permissions before enabling it.
+- insert:
+    - id: dsh-remote-mesh
+      name: 'dsh-remote/mesh'
+      disabled: true

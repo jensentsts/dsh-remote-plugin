@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" font-family="'Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif">
+  <defs>
+    <radialGradient id="gY" cx="12%" cy="10%" r="55%">
+      <stop offset="0" stop-color="#f3d64e" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#f3d64e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gT" cx="90%" cy="92%" r="55%">
+      <stop offset="0" stop-color="#63d3c0" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#63d3c0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots2" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.6" fill="#ffffff" opacity="0.04"/>
+    </pattern>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbf7ef"/>
+      <stop offset="1" stop-color="#efe7da"/>
+    </linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="sh2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.40"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="900" rx="26" fill="#121317"/>
+  <rect width="1440" height="900" rx="26" fill="url(#dots2)"/>
+  <rect width="1440" height="900" rx="26" fill="url(#gY)"/>
+  <rect width="1440" height="900" rx="26" fill="url(#gT)"/>
+  <rect x="0.5" y="0.5" width="1439" height="899" rx="25.5" fill="none" stroke="#2c2e37"/>
+
+  <!-- header -->
+  <g transform="translate(64,46)">
+    <rect x="0" y="0" width="128" height="30" rx="15" fill="#1d1e24" stroke="#34363f"/>
+    <text x="16" y="20" fill="#f3d64e" font-size="14" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">镜头 ① · @</text>
+  </g>
+  <text x="64" y="120" fill="#f7f7fa" font-size="34" font-weight="700">聊天框里的远端硬盘</text>
+  <text x="64" y="152" fill="#9aa0aa" font-size="18">一个 @，对端目录就逐级展开在输入框上方；选中即插入标准绝对路径，模型看不出它是远端的。</text>
+
+  <!-- composer panel -->
+  <g filter="url(#sh)">
+    <rect x="64" y="196" width="826" height="484" rx="20" fill="#181a20" stroke="#2c2e37"/>
+  </g>
+  <!-- panel chrome -->
+  <g>
+    <circle cx="92" cy="222" r="5" fill="#3a3d47"/>
+    <circle cx="110" cy="222" r="5" fill="#3a3d47"/>
+    <circle cx="128" cy="222" r="5" fill="#3a3d47"/>
+    <text x="152" y="227" fill="#7d838d" font-size="13" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">DSH · 对话输入框</text>
+    <text x="864" y="227" fill="#5f656f" font-size="13" text-anchor="end">Esc 关闭</text>
+  </g>
+  <line x1="64" y1="242" x2="890" y2="242" stroke="#262831"/>
+
+  <!-- completion menu -->
+  <g filter="url(#sh2)">
+    <rect x="92" y="268" width="770" height="272" rx="16" fill="#1e2028" stroke="#343741"/>
+  </g>
+  <!-- breadcrumb -->
+  <text x="116" y="300" fill="#8b929c" font-size="14">
+    <tspan fill="#63d3c0">/rmt</tspan>
+    <tspan fill="#5f656f"> › </tspan>
+    <tspan>E:</tspan>
+    <tspan fill="#5f656f"> › </tspan>
+    <tspan>data</tspan>
+    <tspan fill="#5f656f"> › </tspan>
+    <tspan>samples</tspan>
+  </text>
+  <text x="836" y="300" fill="#5f656f" font-size="13" text-anchor="end">对端目录 · 实时</text>
+  <line x1="108" y1="314" x2="846" y2="314" stroke="#2a2d36"/>
+
+  <!-- up row -->
+  <g>
+    <text x="120" y="346" fill="#5f656f" font-size="17" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">..</text>
+    <text x="150" y="346" fill="#8b929c" font-size="14">上一级</text>
+  </g>
+  <!-- dir row -->
+  <g>
+    <path d="M112 366 h12 l3 4 h13 v13 h-28 z" fill="#3a3d47" stroke="#565b66"/>
+    <text x="152" y="380" fill="#d5d8de" font-size="17">samples</text>
+    <text x="152" y="399" fill="#6b727d" font-size="13">directory</text>
+    <text x="836" y="386" fill="#6b727d" font-size="13" text-anchor="end">Enter 进入</text>
+  </g>
+  <!-- selected file row -->
+  <g>
+    <rect x="104" y="412" width="746" height="52" rx="10" fill="#262a33" stroke="#3b3f4a"/>
+    <rect x="104" y="412" width="4" height="52" rx="2" fill="#f3d64e"/>
+    <g transform="translate(120,424)">
+      <rect x="0" y="0" width="26" height="22" rx="3" fill="#333741" stroke="#5a606b"/>
+      <circle cx="7" cy="7" r="3" fill="#63d3c0"/>
+      <path d="M2 18 l7 -7 l5 5 l4 -3 l6 5" stroke="#8b929c" fill="none" stroke-width="1.6"/>
+    </g>
+    <text x="158" y="438" fill="#f7f7fa" font-size="17" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">remote-sample.jpg</text>
+    <text x="158" y="457" fill="#8b929c" font-size="13">JPEG · 152 × 240 · 14.7 KB</text>
+    <text x="836" y="445" fill="#f3d64e" font-size="13" text-anchor="end">Enter 插入 mention</text>
+  </g>
+  <!-- second file row -->
+  <g>
+    <g transform="translate(120,486)">
+      <rect x="0" y="0" width="26" height="22" rx="3" fill="#333741" stroke="#5a606b"/>
+      <circle cx="7" cy="7" r="3" fill="#b79bff"/>
+      <path d="M2 18 l7 -7 l5 5 l4 -3 l6 5" stroke="#8b929c" fill="none" stroke-width="1.6"/>
+    </g>
+    <text x="158" y="500" fill="#c9cdd4" font-size="17" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">remote-sample-2.png</text>
+    <text x="158" y="519" fill="#6b727d" font-size="13">PNG · 1200 × 900 · 228.9 KB</text>
+  </g>
+
+  <!-- composer input -->
+  <g>
+    <rect x="92" y="566" width="770" height="72" rx="14" fill="#1b1d24" stroke="#3b3f4a"/>
+    <text x="114" y="594" fill="#6b727d" font-size="13">消息 / @ 文件 / 斜杠命令</text>
+    <text x="114" y="622" fill="#f7f7fa" font-size="19" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">@/rmt/E:/data/samples/</text>
+    <rect x="112" y="606" width="12" height="20" fill="#63d3c0" opacity="0.35"/>
+    <g transform="translate(742,600)">
+      <rect x="0" y="0" width="98" height="24" rx="12" fill="#2a2d36" stroke="#3b3f4a"/>
+      <text x="49" y="17" fill="#9aa0aa" font-size="12" text-anchor="middle">DeepSeek V4</text>
+    </g>
+    <text x="114" y="664" fill="#5f656f" font-size="13">候选来自对端 fs.listDir；盘符探测按 peer 缓存 5 分钟</text>
+  </g>
+
+  <!-- right: rendered message -->
+  <g filter="url(#sh)">
+    <rect x="930" y="196" width="446" height="472" rx="20" fill="#181a20" stroke="#2c2e37"/>
+  </g>
+  <text x="954" y="228" fill="#7d838d" font-size="13" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">DSH · 对话</text>
+  <g>
+    <circle cx="962" cy="262" r="10" fill="#2a2d36" stroke="#3b3f4a"/>
+    <text x="962" y="267" fill="#f3d64e" font-size="11" text-anchor="middle">AI</text>
+    <text x="982" y="267" fill="#9aa0aa" font-size="14">助手</text>
+  </g>
+  <rect x="954" y="284" width="398" height="34" rx="10" fill="#20232b" stroke="#2c2e37"/>
+  <text x="970" y="306" fill="#d5d8de" font-size="15">远端那张示例图找到了，贴给你看：</text>
+
+  <!-- image card (generic illustration, not a real private file) -->
+  <g filter="url(#sh2)">
+    <rect x="972" y="336" width="362" height="222" rx="12" fill="url(#paper)" stroke="#d9cfbd"/>
+  </g>
+  <g opacity="0.9">
+    <rect x="1002" y="360" width="302" height="94" rx="6" fill="none" stroke="#e3b7b7"/>
+    <line x1="1002" y1="394" x2="1304" y2="394" stroke="#ecc9c9" stroke-dasharray="4 4"/>
+    <line x1="1027" y1="360" x2="1027" y2="454" stroke="#ecc9c9" stroke-dasharray="4 4"/>
+    <line x1="1279" y1="360" x2="1279" y2="454" stroke="#ecc9c9" stroke-dasharray="4 4"/>
+    <text x="1153" y="390" fill="#c04b4b" font-size="22" text-anchor="middle" font-family="'Times New Roman',serif" font-style="italic">biàng</text>
+    <text x="1153" y="438" fill="#b3323e" font-size="30" text-anchor="middle">永</text>
+    <rect x="1052" y="470" width="202" height="78" rx="6" fill="none" stroke="#e3b7b7"/>
+    <line x1="1052" y1="509" x2="1254" y2="509" stroke="#ecc9c9" stroke-dasharray="4 4"/>
+    <line x1="1153" y1="470" x2="1153" y2="548" stroke="#ecc9c9" stroke-dasharray="4 4"/>
+    <text x="1153" y="522" fill="#b3323e" font-size="30" text-anchor="middle">字</text>
+  </g>
+  <text x="1153" y="580" fill="#7d6f5f" font-size="12" text-anchor="middle">远端图片 · 经 /rmt/ 取字节（示意图）</text>
+
+  <text x="954" y="604" fill="#63d3c0" font-size="14" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">![](/rmt/E:/data/samples/…jpg)</text>
+  <text x="954" y="630" fill="#8b929c" font-size="13">图片由宿主 /api/file?path= 读取，先过</text>
+  <text x="954" y="650" fill="#8b929c" font-size="13">path.isAbsolute() 检查，再交给联邦 fs。</text>
+
+  <!-- bottom flow -->
+  <g font-size="14">
+    <rect x="64" y="700" width="300" height="64" rx="14" fill="#1a1c22" stroke="#2c2e37"/>
+    <text x="84" y="726" fill="#f3d64e" font-family="'Cascadia Code',Consolas,ui-monospace,monospace" font-size="16">@</text>
+    <text x="104" y="726" fill="#d5d8de">触发补全</text>
+    <text x="84" y="748" fill="#6b727d" font-size="12.5">输入框里敲 @ 或 @/rmt/</text>
+
+    <path d="M372 732 h20" stroke="#3b3f4a" stroke-width="2"/>
+    <path d="M388 727 l8 5 l-8 5 z" fill="#3b3f4a"/>
+
+    <rect x="406" y="700" width="300" height="64" rx="14" fill="#1a1c22" stroke="#2c2e37"/>
+    <text x="426" y="726" fill="#d5d8de">插入绝对路径</text>
+    <text x="426" y="748" fill="#6b727d" font-size="12.5">/rmt/E:/data/samples/…jpg</text>
+
+    <path d="M714 732 h20" stroke="#3b3f4a" stroke-width="2"/>
+    <path d="M730 727 l8 5 l-8 5 z" fill="#3b3f4a"/>
+
+    <rect x="748" y="700" width="300" height="64" rx="14" fill="#1a1c22" stroke="#2c2e37"/>
+    <text x="768" y="726" fill="#d5d8de">read_image / ![](...)</text>
+    <text x="768" y="748" fill="#6b727d" font-size="12.5">同一个路径，工具与 Markdown 通用</text>
+
+    <path d="M1056 732 h20" stroke="#3b3f4a" stroke-width="2"/>
+    <path d="M1072 727 l8 5 l-8 5 z" fill="#3b3f4a"/>
+
+    <rect x="1090" y="700" width="286" height="64" rx="14" fill="#172b2a" stroke="#2f6f67"/>
+    <text x="1110" y="726" fill="#d9fff8">联邦 fs → 远端字节</text>
+    <text x="1110" y="748" fill="#6fc9bc" font-size="12.5">跨加密链路，本地路径零改动</text>
+  </g>
+</svg>

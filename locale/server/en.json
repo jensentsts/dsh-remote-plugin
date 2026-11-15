@@ -1,0 +1,3 @@
+{
+  "meta": { "title": "Incoming host links", "description": "Accept pinned DSH hosts with isolated sessions, cancellation, questions and permissions. Binds to loopback by default." }
+}

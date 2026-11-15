@@ -1,0 +1,142 @@
+{
+  "metadataVersion": 1,
+  "name": "dsh-remote",
+  "version": "0.5.2",
+  "runtimeFiles": 7,
+  "build": {
+    "node": "v24.16.0",
+    "executable": "<local path>",
+    "sourceRoot": "<local path>",
+    "sourceVersion": "0.2.2-rc.1",
+    "sourceCommit": "66491b05e3f05ad35bcdd4f6cd7ed26041d9e3db",
+    "esbuild": "0.28.1",
+    "fsAliasSourceRoot": "<local path>",
+    "nativeExternal": [
+      "chokidar",
+      "koffi"
+    ],
+    "sharedIdentityExternal": "@deepseek-ai/* except inline fs-local and fs-sandbox in peer-fs only"
+  },
+  "files": [
+    {
+      "path": "lib/client.js",
+      "bytes": 297092,
+      "sha256": "6c7d9a23b53597666405fc7033e980aec4b1a8847db7028e0f1bcf13d5c1b6ae",
+      "staticPackages": [
+        "@deepseek-ai/cordis",
+        "@deepseek-ai/cosmokit",
+        "@deepseek-ai/dsh-fs",
+        "@deepseek-ai/dsh-tools",
+        "@deepseek-ai/schemastery"
+      ],
+      "dynamicPackages": [
+        "@deepseek-ai/dsh-subagent"
+      ]
+    },
+    {
+      "path": "lib/server.js",
+      "bytes": 182899,
+      "sha256": "61a791693e1e088fa0f423c2314fe6c28c7872b14490f14e59b43286c48e44b2",
+      "staticPackages": [
+        "@deepseek-ai/cordis",
+        "@deepseek-ai/cosmokit",
+        "@deepseek-ai/dsh-agent",
+        "@deepseek-ai/dsh-fs",
+        "@deepseek-ai/dsh-llm",
+        "@deepseek-ai/dsh-session",
+        "@deepseek-ai/schemastery"
+      ],
+      "dynamicPackages": [
+        "zod"
+      ]
+    },
+    {
+      "path": "lib/link.js",
+      "bytes": 45409,
+      "sha256": "5b6eca74d074c864130eb2a42ca51f6fef953aa8753aa44dec9e27099720fa80",
+      "staticPackages": [],
+      "dynamicPackages": []
+    },
+    {
+      "path": "lib/protocol.js",
+      "bytes": 24677,
+      "sha256": "43029da589d8c9f58703bf77ecfaa3eb063ef35485c5ab19cd97dc1f72f2378f",
+      "staticPackages": [],
+      "dynamicPackages": []
+    },
+    {
+      "path": "lib/peer-fs.js",
+      "bytes": 144578,
+      "sha256": "3abc4b7ba9584e71463785c4cd74e11cc76f079378900f137531d522ecd5dca7",
+      "staticPackages": [
+        "@deepseek-ai/cordis",
+        "@deepseek-ai/dsh-fs",
+        "@deepseek-ai/dsh-fs-patch",
+        "@deepseek-ai/dsh-sandbox",
+        "@deepseek-ai/schemastery",
+        "chokidar"
+      ],
+      "dynamicPackages": [
+        "koffi"
+      ]
+    },
+    {
+      "path": "lib/file-reference.js",
+      "bytes": 19227,
+      "sha256": "7db1379f841d17c2f2d1bf48c2d7dc9f211318003e02d9d9f2891b01c94f622c",
+      "staticPackages": [
+        "@deepseek-ai/dsh-file-reference-local",
+        "@deepseek-ai/schemastery"
+      ],
+      "dynamicPackages": []
+    },
+    {
+      "path": "lib/mesh.js",
+      "bytes": 68590,
+      "sha256": "c0651b132feeaa160e5217da0780e20d44a45e4abda992fd7ca0f5ccfeac1c62",
+      "staticPackages": [
+        "@deepseek-ai/cordis",
+        "@deepseek-ai/cosmokit",
+        "@deepseek-ai/schemastery"
+      ],
+      "dynamicPackages": []
+    }
+  ],
+  "inputs": [
+    {
+      "path": "package.json",
+      "bytes": 3318,
+      "sha256": "717ffb317c9375f863fb3018f1d3daf675cdfadc439245814e2ada340ebb4d25"
+    },
+    {
+      "path": "tools/build.mjs",
+      "bytes": 2563,
+      "sha256": "734f5767242003fd09c65558075e2699215332769695daa548595be81dcf6051"
+    },
+    {
+      "path": "src/server.ts",
+      "bytes": 119963,
+      "sha256": "6b33faa4d665255003adc69daae606bc2cc2b1ba140ba8f7a9c2f458e3dd0444"
+    },
+    {
+      "path": "src/client.ts",
+      "bytes": 146638,
+      "sha256": "883c1ea7a303e3f4f50a131527bc46c665b90721caedeaac636534a05c349153"
+    },
+    {
+      "path": "src/reply-codec.ts",
+      "bytes": 11358,
+      "sha256": "9570694e6c3e2cf06397fdda1253a7fcc47d66cda86a712b8e20665834970421"
+    },
+    {
+      "path": "src/agent-delivery.ts",
+      "bytes": 2216,
+      "sha256": "3f6709027c653fe19253e4a5e3024800ed4286769e447fccf9c9c6fb7907a793"
+    },
+    {
+      "path": "src/message-traces.ts",
+      "bytes": 5295,
+      "sha256": "26995f044e8a03c4588d171285c2e04d9e6ff0b47d1b801be65ad057666f8cf9"
+    }
+  ]
+}

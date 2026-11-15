@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" font-family="'Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif">
+  <defs>
+    <radialGradient id="glowY" cx="18%" cy="16%" r="52%">
+      <stop offset="0" stop-color="#f3d64e" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#f3d64e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowT" cx="86%" cy="88%" r="55%">
+      <stop offset="0" stop-color="#63d3c0" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#63d3c0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#20222a"/>
+      <stop offset="1" stop-color="#181a20"/>
+    </linearGradient>
+    <linearGradient id="pipe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f3d64e"/>
+      <stop offset="0.5" stop-color="#f3d64e" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#63d3c0"/>
+    </linearGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.6" fill="#ffffff" opacity="0.045"/>
+    </pattern>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="chip" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="820" rx="26" fill="#121317"/>
+  <rect width="1440" height="820" rx="26" fill="url(#dots)"/>
+  <rect width="1440" height="820" rx="26" fill="url(#glowY)"/>
+  <rect width="1440" height="820" rx="26" fill="url(#glowT)"/>
+  <rect x="0.5" y="0.5" width="1439" height="819" rx="25.5" fill="none" stroke="#2c2e37"/>
+
+  <!-- header -->
+  <g transform="translate(64,58)">
+    <rect x="0" y="0" width="52" height="52" rx="14" fill="#1d1e24" stroke="#34363f"/>
+    <path d="M14 33 C18 20, 34 20, 38 33" fill="none" stroke="#f3d64e" stroke-width="3.2" stroke-linecap="round"/>
+    <circle cx="14" cy="33" r="3.4" fill="#f3d64e"/>
+    <circle cx="38" cy="33" r="3.4" fill="#63d3c0"/>
+    <circle cx="26" cy="25.5" r="2.6" fill="#ffffff" opacity="0.9"/>
+  </g>
+  <text x="134" y="82" fill="#f7f7fa" font-size="38" font-weight="700" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">dsh-remote</text>
+  <text x="135" y="113" fill="#9aa0aa" font-size="19">一台 DSH 把另一台 DSH 变成 agent 可操控的 peer —— 借助一条加密 TCP 链路，无需中心服务。</text>
+
+  <g font-family="'Cascadia Code',Consolas,ui-monospace,monospace" font-size="15">
+    <rect x="1212" y="58" width="164" height="30" rx="15" fill="#1d1e24" stroke="#34363f"/>
+    <circle cx="1232" cy="73" r="4" fill="#63d3c0"/>
+    <text x="1244" y="78" fill="#cfd3da">link · 已连接</text>
+  </g>
+
+  <!-- left card -->
+  <g filter="url(#soft)">
+    <rect x="64" y="196" width="436" height="430" rx="20" fill="url(#card)" stroke="#2c2e37"/>
+  </g>
+  <text x="92" y="238" fill="#f7f7fa" font-size="23" font-weight="700">本机 DSH · 主控</text>
+  <text x="92" y="266" fill="#9aa0aa" font-size="16">模型照常发起 function call，看不出边界</text>
+  <line x1="92" y1="286" x2="472" y2="286" stroke="#2c2e37"/>
+
+  <g font-size="15" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">
+    <rect x="92" y="304" width="118" height="34" rx="9" fill="#23252d" stroke="#34363f"/>
+    <text x="108" y="326" fill="#cfd3da">read</text>
+    <rect x="218" y="304" width="118" height="34" rx="9" fill="#23252d" stroke="#34363f"/>
+    <text x="234" y="326" fill="#cfd3da">write</text>
+    <rect x="344" y="304" width="118" height="34" rx="9" fill="#23252d" stroke="#34363f"/>
+    <text x="360" y="326" fill="#cfd3da">pwsh</text>
+
+    <rect x="92" y="350" width="150" height="34" rx="9" fill="#23252d" stroke="#34363f"/>
+    <text x="108" y="372" fill="#cfd3da">subagent</text>
+    <rect x="250" y="350" width="150" height="34" rx="9" fill="#23252d" stroke="#34363f"/>
+    <text x="266" y="372" fill="#cfd3da">todo_write</text>
+
+    <!-- mirrored remote tool, highlighted -->
+    <rect x="92" y="410" width="370" height="56" rx="12" fill="#172b2a" stroke="#2f6f67"/>
+    <rect x="94" y="412" width="4" height="52" rx="2" fill="#63d3c0"/>
+    <text x="114" y="435" fill="#d9fff8" font-size="17">ieee_search</text>
+    <text x="114" y="456" fill="#6fc9bc" font-size="14">远端镜像 · 名字原样出现</text>
+    <g transform="translate(356,424)">
+      <circle cx="10" cy="10" r="10" fill="#63d3c0" opacity="0.18"/>
+      <path d="M6 14 L14 6 M9 6 h5 v5" stroke="#63d3c0" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <text x="92" y="500" fill="#8b929c" font-size="15.5">远程独有的工具、插件、MCP，被按原名</text>
+  <text x="92" y="524" fill="#8b929c" font-size="15.5">镜像进每个 agent 自己的作用域；本地同名永远优先。</text>
+  <g>
+    <rect x="92" y="552" width="370" height="46" rx="11" fill="#1a1c22" stroke="#2c2e37"/>
+    <text x="110" y="581" fill="#f3d64e" font-size="15" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">@/rmt/E:/data/samples/</text>
+    <text x="372" y="581" fill="#8b929c" font-size="14">远端路径</text>
+  </g>
+
+  <!-- right card -->
+  <g filter="url(#soft)">
+    <rect x="940" y="196" width="436" height="430" rx="20" fill="url(#card)" stroke="#2c2e37"/>
+  </g>
+  <text x="968" y="238" fill="#f7f7fa" font-size="23" font-weight="700">远端 DSH · 被控</text>
+  <text x="968" y="266" fill="#9aa0aa" font-size="16">工具本体在这里执行，会话不被打扰</text>
+  <line x1="968" y1="286" x2="1348" y2="286" stroke="#2c2e37"/>
+
+  <g font-size="16">
+    <rect x="968" y="304" width="180" height="42" rx="10" fill="#23252d" stroke="#34363f"/>
+    <text x="984" y="331" fill="#cfd3da" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">ieee_tools</text>
+    <rect x="1158" y="304" width="190" height="42" rx="10" fill="#23252d" stroke="#34363f"/>
+    <text x="1174" y="331" fill="#cfd3da" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">MCP 网关</text>
+    <rect x="968" y="358" width="190" height="42" rx="10" fill="#23252d" stroke="#34363f"/>
+    <text x="984" y="385" fill="#cfd3da" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">自定义插件</text>
+    <rect x="1168" y="358" width="180" height="42" rx="10" fill="#23252d" stroke="#34363f"/>
+    <text x="1184" y="385" fill="#cfd3da" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">agent preset</text>
+
+    <rect x="968" y="416" width="380" height="52" rx="11" fill="#191b21" stroke="#2c2e37"/>
+    <text x="986" y="448" fill="#63d3c0" font-family="'Cascadia Code',Consolas,ui-monospace,monospace" font-size="15">E:\data\samples\…jpg</text>
+    <text x="1232" y="448" fill="#8b929c" font-size="14">硬盘资源</text>
+  </g>
+
+  <text x="968" y="510" fill="#8b929c" font-size="15.5">执行时 exec.agent = undefined：不建会话、</text>
+  <text x="968" y="534" fill="#8b929c" font-size="15.5">不续上下文、不烧远端一个模型 token。</text>
+
+  <g>
+    <rect x="968" y="560" width="380" height="40" rx="11" fill="#1a1c22" stroke="#2c2e37"/>
+    <text x="986" y="586" fill="#8b929c" font-size="14">allowed by</text>
+    <text x="1064" y="586" fill="#f3d64e" font-size="15" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">maxPermission 1 / 2 / 3</text>
+    <text x="1300" y="586" fill="#8b929c" font-size="14">权限</text>
+  </g>
+
+  <!-- center link -->
+  <g>
+    <rect x="520" y="286" width="400" height="118" rx="18" fill="#171921" stroke="#2c2e37"/>
+    <text x="720" y="318" fill="#f7f7fa" font-size="17" text-anchor="middle" font-weight="600">一条加密 TCP 长连接</text>
+    <text x="720" y="342" fill="#8b929c" font-size="14" text-anchor="middle">X25519 双向认证 · AES-256-GCM · 可走 frp 穿透</text>
+    <g>
+      <rect x="540" y="362" width="360" height="8" rx="4" fill="url(#pipe)" opacity="0.9"/>
+      <circle cx="570" cy="366" r="4.5" fill="#f3d64e"/>
+      <circle cx="720" cy="366" r="4.5" fill="#ffffff" opacity="0.85"/>
+      <circle cx="870" cy="366" r="4.5" fill="#63d3c0"/>
+    </g>
+    <text x="720" y="394" fill="#9aa0aa" font-size="13.5" text-anchor="middle" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">caps.call · fs.read · fs.write · exec</text>
+  </g>
+
+  <!-- flow arrows between cards and link -->
+  <defs>
+    <marker id="arrowY" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#f3d64e"/>
+    </marker>
+    <marker id="arrowT" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#63d3c0"/>
+    </marker>
+  </defs>
+  <path d="M500 366 C508 366, 512 366, 518 366" stroke="#f3d64e" stroke-width="2.4" fill="none" marker-end="url(#arrowY)"/>
+  <path d="M920 366 C928 366, 930 366, 938 366" stroke="#63d3c0" stroke-width="2.4" fill="none" marker-end="url(#arrowT)"/>
+  <text x="506" y="352" fill="#f3d64e" font-size="13" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">call</text>
+  <text x="924" y="352" fill="#63d3c0" font-size="13" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">run</text>
+
+  <!-- footer chips -->
+  <g font-size="15">
+    <rect x="64" y="676" width="392" height="42" rx="12" fill="#1a1c22" stroke="#2c2e37"/>
+    <text x="82" y="703" fill="#cfd3da">@ 补全 · <tspan fill="#f3d64e" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">/rmt/…</tspan> 绝对路径 · 图片直出</text>
+    <rect x="478" y="676" width="392" height="42" rx="12" fill="#1a1c22" stroke="#2c2e37"/>
+    <text x="496" y="703" fill="#cfd3da">能力直连 · <tspan fill="#f3d64e" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">caps.call</tspan> 不建会话</text>
+    <rect x="892" y="676" width="484" height="42" rx="12" fill="#1a1c22" stroke="#2c2e37"/>
+    <text x="910" y="703" fill="#cfd3da">后台运行 · worker 池 · Agent Teams · 费用回传 · 大文件快传</text>
+  </g>
+  <text x="64" y="770" fill="#6b727d" font-size="14">模型不需要知道 tools / plugins / resources 在哪台机器上 —— 它只管把事做完。</text>
+  <text x="1376" y="770" fill="#6b727d" font-size="14" text-anchor="end" font-family="'Cascadia Code',Consolas,ui-monospace,monospace">dsh-remote · build r21 / c14</text>
+</svg>
