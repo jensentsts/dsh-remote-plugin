@@ -96,7 +96,7 @@ export const name = 'dsh-remote-server'
 export const DSH_REMOTE_SERVER_SETTINGS_NAMESPACE = 'dsh-remote-server' as SettingsNamespace
 
 /** Advertised to the peer so it can refuse an incompatible build. */
-export const SERVER_VERSION = '0.5.2'
+export const SERVER_VERSION = '0.5.3'
 
 /**
  * Bumped on every source change.

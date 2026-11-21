@@ -22,7 +22,14 @@ export function validateDeclaredImports(manifest, source, label = 'runtime') {
   const { staticPackages, dynamicPackages } = importedPackages(source)
   for (const dependency of new Set([...staticPackages, ...dynamicPackages])) {
     if (!Object.hasOwn(declared, dependency)) throw new Error(`${label}: undeclared external dependency ${dependency}`)
-    if (staticPackages.has(dependency) && manifest.peerDependenciesMeta?.[dependency]?.optional === true) {
+    // DSH supplies these peers from its own runtime graph. Marking them
+    // optional for pnpm avoids installing another copy of the host and its
+    // native dependencies when the bundle is fetched from GitHub.
+    const suppliedByHost = Array.isArray(manifest.dshRemoteHostPeers)
+      && manifest.dshRemoteHostPeers.includes(dependency)
+      && typeof manifest.engines?.dsh === 'string'
+      && !!manifest.dsh?.bundle?.patch
+    if (staticPackages.has(dependency) && manifest.peerDependenciesMeta?.[dependency]?.optional === true && !suppliedByHost) {
       throw new Error(`${label}: static dependency ${dependency} cannot be an optional peer`)
     }
   }

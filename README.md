@@ -5,6 +5,18 @@
 
 > 本仓库版本依赖 DSH 与包清单中声明的 peer dependencies；请以 `package.json` 为准。
 
+## 从 GitHub 安装
+
+在 DSH 的「插件 → 安装第三方插件」中粘贴下面的地址并安装：
+
+```text
+https://github.com/jensentsts/dsh-remote-plugin/archive/refs/heads/main.tar.gz
+```
+
+该地址由 GitHub 提供，安装包已包含构建产物；DSH 自带的运行时提供插件所需的宿主接口。安装后在插件设置中配置主机、密钥和权限；受控端需要启用 Remote server。
+
+0.5.3 使用 DSH 运行时提供的依赖，GitHub 安装时无需再下载另一套 DSH 组件或编译原生模块。客户端与服务端的通信协议保持原样。
+
 > DSH 插件，用于无缝衔接本地和远程主机的 dsh 工作。  
 > DSH plugin for using dsh on a remote host like what dsh does on the local host, seamlessly.
 

@@ -109,7 +109,7 @@ export const name = 'dsh-remote-client'
 export const DSH_REMOTE_CLIENT_SETTINGS_NAMESPACE = 'dsh-remote-client' as SettingsNamespace
 
 /** Advertised in `remote_ping` results. */
-export const CLIENT_VERSION = '0.5.2'
+export const CLIENT_VERSION = '0.5.3'
 
 /**
  * Bumped on every source change, and surfaced in `remote_ping`.

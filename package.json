@@ -1,6 +1,6 @@
 {
   "name": "dsh-remote",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Authenticated multi-host DSH links, host-qualified plugin and workspace references, and remote filesystem access.",
   "engines": {
     "dsh": ">=0.2.2-rc.1 <0.3.0"
@@ -114,9 +114,100 @@
     "@deepseek-ai/dsh-util-values": "^0.2.2-rc.1"
   },
   "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/cosmokit": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-agent": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-agent-preset-registry": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-fs": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-fs-local": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-fs-sandbox": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-fs-patch": {
+      "optional": true
+    },
+    "chokidar": {
+      "optional": true
+    },
+    "koffi": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-file-reference": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-file-reference-local": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-sandbox": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-session": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-storage-domain": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-settings": {
+      "optional": true
+    },
     "@deepseek-ai/dsh-subagent": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-user-questions": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-util-values": {
       "optional": true
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dshRemoteHostPeers": [
+    "@deepseek-ai/cordis",
+    "@deepseek-ai/cosmokit",
+    "@deepseek-ai/schemastery",
+    "@deepseek-ai/dsh-agent",
+    "@deepseek-ai/dsh-agent-preset-registry",
+    "@deepseek-ai/dsh-fs",
+    "@deepseek-ai/dsh-fs-local",
+    "@deepseek-ai/dsh-fs-sandbox",
+    "@deepseek-ai/dsh-fs-patch",
+    "chokidar",
+    "koffi",
+    "@deepseek-ai/dsh-file-reference",
+    "@deepseek-ai/dsh-file-reference-local",
+    "@deepseek-ai/dsh-llm",
+    "@deepseek-ai/dsh-sandbox",
+    "@deepseek-ai/dsh-session",
+    "@deepseek-ai/dsh-storage-domain",
+    "zod",
+    "@deepseek-ai/dsh-settings",
+    "@deepseek-ai/dsh-subagent",
+    "@deepseek-ai/dsh-tools",
+    "@deepseek-ai/dsh-user-questions",
+    "@deepseek-ai/dsh-util-values"
+  ]
 }
